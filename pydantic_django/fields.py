@@ -5,12 +5,13 @@ from enum import Enum
 from uuid import UUID
 
 
-from pydantic import IPvAnyAddress, Json
+from pydantic import IPvAnyAddress, Json, EmailStr
 from pydantic.fields import FieldInfo
 
 
 INT_TYPES = [
     "AutoField",
+    "BigAutoField",
     "IntegerField",
     "SmallIntegerField",
     "BigIntegerField",
@@ -20,7 +21,6 @@ INT_TYPES = [
 
 STR_TYPES = [
     "CharField",
-    "EmailField",
     "URLField",
     "SlugField",
     "TextField",
@@ -29,6 +29,7 @@ STR_TYPES = [
 
 
 FIELD_TYPES = {
+    "EmailField": EmailStr,
     "GenericIPAddressField": IPvAnyAddress,
     "BooleanField": bool,
     "BinaryField": bytes,

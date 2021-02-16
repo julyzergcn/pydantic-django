@@ -2,14 +2,11 @@
 
 [Pydantic](https://pydantic-docs.helpmanual.io/) model interface for [Django](https://www.djangoproject.com/) ORM.
 
-**Important**: this project should be considered an ***experimental*** work-in-progress. The current API design and behaviour is not finalised, specific version support is not yet determined, and there is still a lot of things to test yet. 
-
-The initial non-experimental release will be `0.1.0` and minor releases will be used for deprecations.
-
 ## Installation
 
 ```
-pip install pydantic-django
+pip install email-validator
+pip install -e git+https://github.com/julyzergcn/pydantic-django.git#egg=pydantic-django
 ```
 
 ## Usage
@@ -20,6 +17,7 @@ An example of basic [schema](https://pydantic-docs.helpmanual.io/usage/schema/) 
 
 ```python
 class UserSchema(ModelSchema):
+
     class Config:
         model = User
         
