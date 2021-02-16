@@ -85,7 +85,11 @@ def ModelSchemaField(field: Any) -> tuple:
             field = field.target_field
 
     else:
-        internal_type = field.get_internal_type()
+        if field.__class__.__name__ == 'EmailField':
+            internal_type = 'EmailField'
+        else:
+            internal_type = field.get_internal_type()
+
         if internal_type in STR_TYPES:
             python_type = str
             if not field.choices:
